@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Room } from './room.model';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class RoomService {
     return this.afs.collection<Room>('rooms').valueChanges();
   }
 
-  createRoom(name, password): void {
+  createRoom(name, password): Promise<Room> {
     const date = new Date(Date.now());
     const newRoom: Room = {
       id: btoa(name + date.toLocaleDateString()),
@@ -24,25 +24,22 @@ export class RoomService {
       date
     };
 
-    const doc = this.afs.collection('rooms', ref => ref.where('id', '==', newRoom.id));
-    doc.get().toPromise()
-      .then(d => {
-        if (d.empty) {
-          this.afs.collection('rooms').add(newRoom);
-        }
-      });
+    console.log(newRoom);
+
+
+    // const ref = this.afs.collection('rooms').doc(newRoom.id);
+
+    return this.ref(newRoom.id).set(newRoom).then(() => newRoom);
   }
 
-  doesRoomExist(name): void {
+  doesRoomExist(name): Observable<boolean> {
     const date = new Date(Date.now());
+    const id = btoa(name + date.toLocaleDateString());
 
-    const doc = this.afs
-      .collection('rooms',
-        ref => ref.where('name', '==', name)
-      )
-      .valueChanges()
-      .pipe(
-        tap(val => console.log(val))
-      );
+    return this.ref(id).get().pipe(map(s => s.exists));
+  }
+
+  private ref(roomId: string): AngularFirestoreDocument<Room> {
+    return this.afs.collection('rooms').doc(roomId);
   }
 }

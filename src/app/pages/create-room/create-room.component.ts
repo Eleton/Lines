@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Validators, FormBuilder } from '@angular/forms';
 import { Room, RoomService, forbiddenNameValidator } from '../../domain';
 
 @Component({
@@ -11,21 +10,14 @@ import { Room, RoomService, forbiddenNameValidator } from '../../domain';
 export class CreateRoomComponent implements OnInit {
   form = this.fb.group({
     roomName: [
-      'hejsan',
-      [Validators.minLength(4),
-      // forbiddenNameValidator(this.roomService)
-    ]
+      '',
+      [Validators.minLength(2), Validators.required],
+      forbiddenNameValidator(this.roomService)
     ],
-    password: ['']
+    password: ['', Validators.required]
   });
-  roomName = new FormControl('hejsan', [
-    Validators.minLength(4),
-    forbiddenNameValidator(this.roomService)
-  ]);
-  password = new FormControl('');
 
   constructor(
-    private afs: AngularFirestore,
     private roomService: RoomService,
     private fb: FormBuilder
   ) { }
@@ -34,12 +26,11 @@ export class CreateRoomComponent implements OnInit {
   }
 
   submitRoom() {
-    this.roomService.createRoom(this.roomName.value, this.password.value);
+    this.roomService.createRoom(this.form.get('roomName').value, this.form.get('password').value);
   }
 
   onSubmit() {
-    console.log(this.form);
-    this.roomService.doesRoomExist('hejsan');
+    this.roomService.doesRoomExist(this.form.get('roomName').value);
   }
 
 }
