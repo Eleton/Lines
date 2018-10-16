@@ -28,7 +28,7 @@ describe('RoomService', () => {
   });
 
   it('room should exist', (done) => {
-    service.doesRoomExist('test').toPromise().then(value => {
+    service.doesRoomExist('Amöban').toPromise().then(value => {
       expect(value).toBe(true);
       done();
     });

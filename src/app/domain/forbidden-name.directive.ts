@@ -9,14 +9,7 @@ export function forbiddenNameValidator(roomService: RoomService): AsyncValidator
   return (control: AbstractControl):
     Promise<ValidationErrors | null> |
     Observable<ValidationErrors | null> => {
-    // const forbidden = nameRe.test(control.value);
-    // return forbidden ? {'forbiddenName': {value: control.value}} : null;
-    // return roomService.doesRoomExist(control.value).pipe(
-    //   map(e => e ? ({ unique: true }) : null),
-    //   tap(e => console.log(e)),
-    //   catchError(() => null)
-    // );
-    return timer(7500).pipe(
+    return timer(2500).pipe(
       switchMap(() => roomService.doesRoomExist(control.value).pipe(
         map(exists => exists ? ({ unique: true}) : null),
         catchError(() => null),

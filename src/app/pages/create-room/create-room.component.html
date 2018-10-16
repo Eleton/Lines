@@ -1,27 +1,21 @@
 <div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <label>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <label>
       Name of Room
       <input type="text" formControlName="roomName">
     </label>
     <label>
       Password
       <input type="text" formControlName="password">
-    </label>
-    <button type="submit" [disabled]="!form.valid" (click)="submitRoom()">Submit</button>
+    </label> -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name of Room" formControlName="roomName">
+    </mat-form-field>
+    <!-- <mat-progress-spinner class="example-margin">
+    </mat-progress-spinner> -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-button type="submit" [disabled]="!form.valid" (click)="submitRoom()">Submit</button>
   </form>
 </div>
-
-<!-- <div>
-  <label>
-    Enter name of Room:
-    <input type="text" [formControl]="roomName">
-  </label>
-
-  <label>
-    Enter a password
-    <input type="password" [formControl]="password">
-  </label>
-
-  <button type="button" (click)="submitRoom()">Skicka</button>
-</div> -->

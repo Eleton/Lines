@@ -11,7 +11,7 @@ export class CreateRoomComponent implements OnInit {
   form = this.fb.group({
     roomName: [
       '',
-      [Validators.minLength(2), Validators.required],
+      [Validators.minLength(6), Validators.required],
       forbiddenNameValidator(this.roomService)
     ],
     password: ['', Validators.required]

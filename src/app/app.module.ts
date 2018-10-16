@@ -12,6 +12,11 @@ import { environment } from '../environments/environment';
 import { CreateRoomComponent } from './pages/create-room/create-room.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RoomListComponent } from './pages/room-list/room-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,10 @@ import { RoomListComponent } from './pages/room-list/room-list.component';
     AngularFireAuthModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

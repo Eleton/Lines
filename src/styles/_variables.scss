@@ -1,0 +1,13 @@
+@import "~@angular/material/theming";
+
+$wec-primary: mat-palette($mat-deep-orange);
+$wec-accent: mat-palette($mat-grey);
+$wec-warn: mat-palette($mat-red);
+$wec-success: mat-palette($mat-green);
+$wec-theme: mat-light-theme($wec-primary, $wec-accent, $wec-warn);
+
+$wec-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(24px, 32px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
