@@ -19,4 +19,8 @@ body {
   line-height: mat-line-height($wec-typography, body-1);
 }
 
+h1, h2, h3 {
+  font-family: 'Courgette', cursive;
+}
+
 @import "material";

@@ -17,6 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FrontPageComponent } from './pages/front-page/front-page.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     LoginPageComponent,
     MainPageComponent,
     CreateRoomComponent,
-    RoomListComponent
+    RoomListComponent,
+    FrontPageComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
