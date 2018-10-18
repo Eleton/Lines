@@ -10,7 +10,12 @@ import { Room, RoomService, forbiddenNameValidator } from '../../domain';
 })
 export class FrontPageComponent implements OnInit {
   pending = '';
-  roomName = new FormControl('', Validators.required, forbiddenNameValidator(this.roomService));
+  inputText = '';
+  roomName = new FormControl(
+    '',
+    Validators.required,
+    forbiddenNameValidator(this.roomService)
+  );
 
   constructor(
     private roomService: RoomService,
@@ -18,9 +23,11 @@ export class FrontPageComponent implements OnInit {
 
   ngOnInit() {
     this.roomName.statusChanges.subscribe(status => {
-      console.log(status);
       this.pending = status;
     });
+    this.roomName.valueChanges.subscribe(inputText => {
+      this.inputText = inputText;
+    })
   }
 
 }

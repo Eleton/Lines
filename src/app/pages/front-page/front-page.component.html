@@ -14,13 +14,25 @@
 
 <p>Jag är en:</p>
 
-<button [disabled]="pending !== 'VALID'" mat-raised-button class="section">
+<button
+  [disabled]="pending !== 'VALID' || inputText.length === 0"
+  mat-raised-button
+  class="section"
+>
   Rumskapare
 </button>
-<button [disabled]="pending !== 'INVALID'" mat-raised-button class="section">
+<button
+  [disabled]="pending !== 'INVALID' || inputText.length === 0"
+  mat-raised-button
+  class="section"
+>
   Aktör
 </button>
-<button [disabled]="pending !== 'INVALID'" mat-raised-button class="section">
+<button
+  [disabled]="pending !== 'INVALID' || inputText.length === 0"
+  mat-raised-button
+  class="section"
+>
   Publik
 </button>
 
