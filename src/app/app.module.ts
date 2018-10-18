@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -22,6 +23,11 @@ import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 
+const routes: Routes = [
+  { path: '', component: MainPageComponent },
+  { path: 'admin', component: LoginPageComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +41,9 @@ import { FooterComponent } from './pages/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes, {
+      paramsInheritanceStrategy: 'always'
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
