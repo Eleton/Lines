@@ -4,7 +4,6 @@ import { switchMap, tap, map, catchError, first } from 'rxjs/operators';
 import { RoomService } from './room.service';
 
 export function forbiddenNameValidator(roomService: RoomService): AsyncValidatorFn {
-  console.log('FORBIDDEN NAME VALIDATOR');
 
   return (control: AbstractControl):
     Promise<ValidationErrors | null> |
