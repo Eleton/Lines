@@ -9,14 +9,18 @@ import { Room, RoomService, forbiddenNameValidator } from '../../domain';
   styleUrls: ['./front-page.component.scss']
 })
 export class FrontPageComponent implements OnInit {
-  roomName = new FormControl('', Validators.required, forbiddenNameValidator());
+  pending = '';
+  roomName = new FormControl('', Validators.required, forbiddenNameValidator(this.roomService));
 
   constructor(
     private roomService: RoomService,
-    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
+    this.roomName.statusChanges.subscribe(status => {
+      console.log(status);
+      this.pending = status;
+    });
   }
 
 }

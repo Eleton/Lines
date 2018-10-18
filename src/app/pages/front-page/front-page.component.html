@@ -4,7 +4,12 @@
   <mat-form-field class="inputRoomName">
     <input matInput placeholder="Namn på Rum" [formControl]="roomName">
   </mat-form-field>
-  <mat-spinner class="example-margin" [diameter]="20" color="accent"></mat-spinner>
+  <mat-spinner
+    [style.visibility]="pending === 'PENDING' ? 'visible' : 'hidden'"
+    class="example-margin"
+    [diameter]="20"
+    color="accent"
+  ></mat-spinner>
 </div>
 
 <div class="section">
