@@ -27,7 +27,7 @@ export class FrontPageComponent implements OnInit {
     });
     this.roomName.valueChanges.subscribe(inputText => {
       this.inputText = inputText;
-    })
+    });
   }
 
 }

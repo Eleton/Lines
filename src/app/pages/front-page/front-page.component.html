@@ -4,12 +4,18 @@
   <mat-form-field class="inputRoomName">
     <input matInput placeholder="Namn på Rum" [formControl]="roomName">
   </mat-form-field>
-  <mat-spinner
-    [style.visibility]="pending === 'PENDING' ? 'visible' : 'hidden'"
+  <div
+    class="response-container"
+  >
+    <mat-spinner
+    *ngIf="pending === 'PENDING'"
     class="example-margin"
     [diameter]="20"
     color="accent"
-  ></mat-spinner>
+    ></mat-spinner>
+    <div class="response-container__text" *ngIf="pending === 'VALID'">Rummet är ledigt!</div>
+    <div class="response-container__text" *ngIf="pending === 'INVALID'">Rummet är skapat!</div>
+  </div>
 </mat-card>
 
 <p>Jag är en:</p>

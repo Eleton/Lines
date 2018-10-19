@@ -20,6 +20,15 @@
   }
 }
 
+.response-container {
+  height: 20px;
+  .response-container__text {
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: #009000;
+  }
+}
+
 p {
   display: flex;
   justify-content: center;
