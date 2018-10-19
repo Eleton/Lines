@@ -22,10 +22,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { CreatePasswordComponent } from './pages/create-password/create-password.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'admin', component: LoginPageComponent },
+  { path: 'password', component: CreatePasswordComponent },
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     RoomListComponent,
     FrontPageComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CreatePasswordComponent
   ],
   imports: [
     BrowserModule,
