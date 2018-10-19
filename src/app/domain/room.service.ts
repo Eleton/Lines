@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Room } from './room.model';
 import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
+import { format} from 'date-fns';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class RoomService {
   createRoom(name, password): Promise<Room> {
     const date = new Date(Date.now());
     const newRoom: Room = {
-      id: btoa(name + date.toLocaleDateString()),
+      id: this.toId(name),
       name,
       password,
       date
@@ -26,20 +27,22 @@ export class RoomService {
 
     console.log(newRoom);
 
-
-    // const ref = this.afs.collection('rooms').doc(newRoom.id);
-
     return this.ref(newRoom.id).set(newRoom).then(() => newRoom);
   }
 
   doesRoomExist(name): Observable<boolean> {
-    const date = new Date(Date.now());
-    const id = btoa(name + date.toLocaleDateString());
+    const date = format(Date.now(), 'YYYY-MM-DD');
+    const id = this.toId(name);
 
     return this.ref(id).get().pipe(map(s => s.exists));
   }
 
   private ref(roomId: string): AngularFirestoreDocument<Room> {
     return this.afs.collection('rooms').doc(roomId);
+  }
+
+  private toId(name: string): string {
+    const date = format(Date.now(), 'YYYY-MM-DD');
+    return btoa(name.toLowerCase() + date);
   }
 }
