@@ -108,13 +108,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _pages_room_list_room_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/room-list/room-list.component */ "./src/app/pages/room-list/room-list.component.ts");
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
-/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm5/input.es5.js");
-/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
-/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
-/* harmony import */ var _pages_front_page_front_page_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/front-page/front-page.component */ "./src/app/pages/front-page/front-page.component.ts");
-/* harmony import */ var _pages_header_header_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/header/header.component */ "./src/app/pages/header/header.component.ts");
-/* harmony import */ var _pages_footer_footer_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/footer/footer.component */ "./src/app/pages/footer/footer.component.ts");
+/* harmony import */ var _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @fortawesome/angular-fontawesome */ "./node_modules/@fortawesome/angular-fontawesome/fesm5/angular-fontawesome.js");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _angular_material_card__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material/card */ "./node_modules/@angular/material/esm5/card.es5.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/esm5/input.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
+/* harmony import */ var _pages_front_page_front_page_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/front-page/front-page.component */ "./src/app/pages/front-page/front-page.component.ts");
+/* harmony import */ var _pages_header_header_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/header/header.component */ "./src/app/pages/header/header.component.ts");
+/* harmony import */ var _pages_footer_footer_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./pages/footer/footer.component */ "./src/app/pages/footer/footer.component.ts");
+/* harmony import */ var _pages_create_password_create_password_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./pages/create-password/create-password.component */ "./src/app/pages/create-password/create-password.component.ts");
+/* harmony import */ var _pages_room_admin_room_admin_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./pages/room-admin/room-admin.component */ "./src/app/pages/room-admin/room-admin.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,10 +147,18 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
 var routes = [
     { path: '', component: _pages_main_page_main_page_component__WEBPACK_IMPORTED_MODULE_5__["MainPageComponent"] },
     { path: 'admin', component: _pages_login_page_login_page_component__WEBPACK_IMPORTED_MODULE_4__["LoginPageComponent"] },
+    { path: 'password', component: _pages_create_password_create_password_component__WEBPACK_IMPORTED_MODULE_24__["CreatePasswordComponent"] },
+    { path: 'room_admin', component: _pages_room_admin_room_admin_component__WEBPACK_IMPORTED_MODULE_25__["RoomAdminComponent"] },
 ];
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_15__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_16__["faCut"]);
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -157,12 +170,15 @@ var AppModule = /** @class */ (function () {
                 _pages_main_page_main_page_component__WEBPACK_IMPORTED_MODULE_5__["MainPageComponent"],
                 _pages_create_room_create_room_component__WEBPACK_IMPORTED_MODULE_10__["CreateRoomComponent"],
                 _pages_room_list_room_list_component__WEBPACK_IMPORTED_MODULE_12__["RoomListComponent"],
-                _pages_front_page_front_page_component__WEBPACK_IMPORTED_MODULE_18__["FrontPageComponent"],
-                _pages_header_header_component__WEBPACK_IMPORTED_MODULE_19__["HeaderComponent"],
-                _pages_footer_footer_component__WEBPACK_IMPORTED_MODULE_20__["FooterComponent"]
+                _pages_front_page_front_page_component__WEBPACK_IMPORTED_MODULE_21__["FrontPageComponent"],
+                _pages_header_header_component__WEBPACK_IMPORTED_MODULE_22__["HeaderComponent"],
+                _pages_footer_footer_component__WEBPACK_IMPORTED_MODULE_23__["FooterComponent"],
+                _pages_create_password_create_password_component__WEBPACK_IMPORTED_MODULE_24__["CreatePasswordComponent"],
+                _pages_room_admin_room_admin_component__WEBPACK_IMPORTED_MODULE_25__["RoomAdminComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _fortawesome_angular_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, {
                     paramsInheritanceStrategy: 'always'
                 }),
@@ -172,10 +188,10 @@ var AppModule = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormsModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_11__["ReactiveFormsModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_13__["BrowserAnimationsModule"],
-                _angular_material_card__WEBPACK_IMPORTED_MODULE_14__["MatCardModule"],
-                _angular_material_input__WEBPACK_IMPORTED_MODULE_15__["MatInputModule"],
-                _angular_material_button__WEBPACK_IMPORTED_MODULE_16__["MatButtonModule"],
-                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_17__["MatProgressSpinnerModule"]
+                _angular_material_card__WEBPACK_IMPORTED_MODULE_17__["MatCardModule"],
+                _angular_material_input__WEBPACK_IMPORTED_MODULE_18__["MatInputModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_19__["MatButtonModule"],
+                _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_20__["MatProgressSpinnerModule"]
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -303,6 +319,69 @@ var RoomService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/create-password/create-password.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/pages/create-password/create-password.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<mat-card class=\"section section__inputs\">\n  <div class=\"input\"></div>\n  <div class=\"input\"></div>\n  <div class=\"input\"></div>\n  <div class=\"input\"></div>\n</mat-card>\n<p>Skriv in lösenord</p>\n<mat-card class=\"section section__numpad\">\n  <button mat-fab class=\"button button__1\">1</button>\n  <button mat-fab class=\"button button__2\">2</button>\n  <button mat-fab class=\"button button__3\">3</button>\n  <button mat-fab class=\"button button__4\">4</button>\n  <button mat-fab class=\"button button__5\">5</button>\n  <button mat-fab class=\"button button__6\">6</button>\n  <button mat-fab class=\"button button__7\">7</button>\n  <button mat-fab class=\"button button__8\">8</button>\n  <button mat-fab class=\"button button__9\">9</button>\n  <button\n    mat-fab\n    class=\"button button__backspace\"\n  >\n    <\n  </button>\n  <button mat-fab class=\"button button__0\">0</button>\n  <button\n    mat-fab\n    class=\"button button__confirm\"\n    routerLink=\"/room_admin\"\n  >\n    >\n  </button>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/create-password/create-password.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/pages/create-password/create-password.component.scss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: auto 1fr auto 3fr;\n      grid-template-rows: auto 1fr auto 3fr;\n  height: 100vh;\n  background-color: ivory; }\n\n.section__inputs {\n  display: flex;\n  justify-content: space-around;\n  align-items: center; }\n\n.input {\n  border: 4px solid #222;\n  height: 3rem;\n  width: 3rem;\n  background-color: ivory; }\n\n.section__numpad {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: 1fr 10px 1fr 10px 1fr 10px 1fr;\n  -ms-grid-columns: auto 10px auto 10px auto;\n      grid-template: 1fr 1fr 1fr 1fr / auto auto auto;\n  grid-gap: 10px;\n  padding: 1rem 3rem; }\n\n.section__numpad .button {\n    -ms-grid-column-align: center;\n        justify-self: center;\n    font-size: 1.5rem;\n    border-radius: 50%; }\n\np {\n  display: flex;\n  justify-content: center;\n  font-family: 'Courgette', cursive;\n  font-size: 1.5rem;\n  text-shadow: 2px 2px 0px #ddd; }\n\n@media (orientation: landscape) {\n  p {\n    margin: 8px; }\n  .section__numpad {\n    -ms-grid-rows: 1fr 1fr;\n    -ms-grid-columns: auto auto auto auto auto auto auto;\n        grid-template: 1fr 1fr / auto auto auto auto auto auto auto; }\n    .section__numpad .button__1 {\n      -ms-grid-column: 2;\n      grid-column: 2;\n      -ms-grid-row: 1;\n      grid-row: 1; }\n    .section__numpad .button__2 {\n      -ms-grid-column: 3;\n      grid-column: 3;\n      -ms-grid-row: 1;\n      grid-row: 1; }\n    .section__numpad .button__3 {\n      -ms-grid-column: 4;\n      grid-column: 4;\n      -ms-grid-row: 1;\n      grid-row: 1; }\n    .section__numpad .button__4 {\n      -ms-grid-column: 5;\n      grid-column: 5;\n      -ms-grid-row: 1;\n      grid-row: 1; }\n    .section__numpad .button__5 {\n      -ms-grid-column: 6;\n      grid-column: 6;\n      -ms-grid-row: 1;\n      grid-row: 1; }\n    .section__numpad .button__6 {\n      -ms-grid-column: 2;\n      grid-column: 2;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__7 {\n      -ms-grid-column: 3;\n      grid-column: 3;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__8 {\n      -ms-grid-column: 4;\n      grid-column: 4;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__9 {\n      -ms-grid-column: 5;\n      grid-column: 5;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__backspace {\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__0 {\n      -ms-grid-column: 6;\n      grid-column: 6;\n      -ms-grid-row: 2;\n      grid-row: 2; }\n    .section__numpad .button__confirm {\n      -ms-grid-column: 7;\n      grid-column: 7;\n      -ms-grid-row: 2;\n      grid-row: 2; } }\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/create-password/create-password.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/create-password/create-password.component.ts ***!
+  \********************************************************************/
+/*! exports provided: CreatePasswordComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreatePasswordComponent", function() { return CreatePasswordComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CreatePasswordComponent = /** @class */ (function () {
+    function CreatePasswordComponent() {
+    }
+    CreatePasswordComponent.prototype.ngOnInit = function () {
+    };
+    CreatePasswordComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-create-password',
+            template: __webpack_require__(/*! ./create-password.component.html */ "./src/app/pages/create-password/create-password.component.html"),
+            styles: [__webpack_require__(/*! ./create-password.component.scss */ "./src/app/pages/create-password/create-password.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CreatePasswordComponent);
+    return CreatePasswordComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/create-room/create-room.component.html":
 /*!**************************************************************!*\
   !*** ./src/app/pages/create-room/create-room.component.html ***!
@@ -405,7 +484,7 @@ module.exports = "<p>Skapare: Aiman Josefsson</p>\n<p>2018</p>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  font-family: 'Courgette', cursive;\n  background-color: #222;\n  color: ivory;\n  padding: 0.5rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\np {\n  margin: 0; }\n"
+module.exports = ":host {\n  font-family: 'Courgette', cursive;\n  background-color: #222;\n  color: ivory;\n  padding-bottom: 2px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  margin-top: 4px; }\n\np {\n  margin: 0; }\n"
 
 /***/ }),
 
@@ -457,7 +536,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n\n<mat-card class=\"section\">\n  <mat-form-field class=\"inputRoomName\">\n    <input matInput placeholder=\"Namn på Rum\" [formControl]=\"roomName\">\n  </mat-form-field>\n  <div\n    class=\"response-container\"\n  >\n    <mat-spinner\n    *ngIf=\"pending === 'PENDING'\"\n    class=\"example-margin\"\n    [diameter]=\"20\"\n    color=\"accent\"\n    ></mat-spinner>\n    <div class=\"response-container__text\" *ngIf=\"pending === 'VALID'\">Rummet är ledigt!</div>\n    <div class=\"response-container__text\" *ngIf=\"pending === 'INVALID'\">Rummet är skapat!</div>\n  </div>\n</mat-card>\n\n<p>Jag är en:</p>\n\n<button\n  [disabled]=\"pending !== 'VALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n>\n  Rumskapare\n</button>\n<button\n  [disabled]=\"pending !== 'INVALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n>\n  Aktör\n</button>\n<button\n  [disabled]=\"pending !== 'INVALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n>\n  Publik\n</button>\n\n<app-footer></app-footer>\n"
+module.exports = "<app-header></app-header>\n\n<mat-card class=\"section section__input\">\n  <mat-form-field class=\"inputRoomName\">\n    <input matInput placeholder=\"Namn på Rum\" [formControl]=\"roomName\">\n  </mat-form-field>\n  <div\n    class=\"response-container\"\n  >\n    <mat-spinner\n    *ngIf=\"pending === 'PENDING'\"\n    class=\"example-margin\"\n    [diameter]=\"20\"\n    color=\"accent\"\n    ></mat-spinner>\n    <div class=\"response-container__text\" *ngIf=\"pending === 'VALID'\">Rummet är ledigt!</div>\n    <div class=\"response-container__text\" *ngIf=\"pending === 'INVALID'\">Rummet är skapat!</div>\n  </div>\n</mat-card>\n\n<p>Jag är en:</p>\n\n<button\n  [disabled]=\"pending !== 'VALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n  routerLink=\"/password\"\n>\n  Rumskapare\n</button>\n<button\n  [disabled]=\"pending !== 'INVALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n>\n  Aktör\n</button>\n<button\n  [disabled]=\"pending !== 'INVALID' || inputText.length === 0\"\n  mat-raised-button\n  class=\"section\"\n>\n  Publik\n</button>\n\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -468,7 +547,7 @@ module.exports = "<app-header></app-header>\n\n<mat-card class=\"section\">\n  <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: auto 5fr auto 5fr 5fr 5fr auto;\n      grid-template-rows: auto 5fr auto 5fr 5fr 5fr auto;\n  height: 100vh;\n  background-color: ivory; }\n\n.section {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n  margin: 4px;\n  background-color: #fefefe; }\n\n.section .inputRoomName {\n    text-align: center; }\n\n.response-container {\n  height: 20px; }\n\n.response-container .response-container__text {\n    font-size: 1.2rem;\n    font-weight: 200;\n    color: #009000; }\n\np {\n  display: flex;\n  justify-content: center;\n  font-family: 'Courgette', cursive;\n  font-size: 1.5rem;\n  text-shadow: 2px 2px 0px #ddd; }\n"
+module.exports = ":host {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: auto 5fr auto 5fr 5fr 5fr auto;\n      grid-template-rows: auto 5fr auto 5fr 5fr 5fr auto;\n  height: 100vh;\n  background-color: ivory; }\n\n.section {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n  margin: 4px 8px;\n  background-color: #fefefe; }\n\n.section .inputRoomName {\n    text-align: center; }\n\n.response-container {\n  height: 20px; }\n\n.response-container .response-container__text {\n    font-size: 1.2rem;\n    font-weight: 200;\n    color: #009000; }\n\np {\n  display: flex;\n  justify-content: center;\n  font-family: 'Courgette', cursive;\n  font-size: 1.5rem;\n  text-shadow: 2px 2px 0px #ddd; }\n\n@media (orientation: landscape) {\n  :host {\n    -ms-grid-rows: auto 1fr auto 1fr auto;\n    -ms-grid-columns: 1fr 1fr 1fr;\n        grid-template: auto 1fr auto 1fr auto / 1fr 1fr 1fr; }\n  app-header {\n    -ms-grid-row: 1;\n    grid-row: 1;\n    -ms-grid-column: 1;\n    -ms-grid-column-span: 3;\n    grid-column: 1 / 4; }\n  .section__input {\n    -ms-grid-row: 2;\n    grid-row: 2;\n    -ms-grid-column: 1;\n    -ms-grid-column-span: 3;\n    grid-column: 1 / 4;\n    font-size: 18px; }\n  p {\n    -ms-grid-row: 3;\n    grid-row: 3;\n    -ms-grid-column: 1;\n    -ms-grid-column-span: 3;\n    grid-column: 1 / 4;\n    margin: 0;\n    padding: 4px; }\n  app-footer {\n    -ms-grid-row: 5;\n    grid-row: 5;\n    -ms-grid-column: 1;\n    -ms-grid-column-span: 3;\n    grid-column: 1 / 4; } }\n"
 
 /***/ }),
 
@@ -546,7 +625,7 @@ module.exports = "<h1>ImproAppar: Repliker</h1>"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n  background-color: #222;\n  display: block;\n  color: ivory;\n  height: 12vh;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\nh1 {\n  margin: 0; }\n"
+module.exports = ":host {\n  background-color: #222;\n  display: block;\n  color: ivory;\n  height: 12vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding-bottom: 8px;\n  margin-bottom: 4px; }\n\nh1 {\n  margin: 0; }\n"
 
 /***/ }),
 
@@ -765,6 +844,69 @@ var MainPageComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_fire_firestore__WEBPACK_IMPORTED_MODULE_1__["AngularFirestore"]])
     ], MainPageComponent);
     return MainPageComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/room-admin/room-admin.component.html":
+/*!************************************************************!*\
+  !*** ./src/app/pages/room-admin/room-admin.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<mat-card class=\"section\">\n  <div class=\"section__info\">\n    <div class=\"room\">Rum:</div>\n    <div class=\"room-value\">Amöban</div>\n    <div class=\"password\">Lösenord:</div>\n    <div class=\"password-value\">5555</div>\n  </div>\n</mat-card>\n<p> Aktuella repliker:</p>\n<mat-card class=\"section section__lines\">\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre, och vet du att hemma på min gata i stan där bor det en, faktiskt</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n    <div class=\"section__lines__line\">\n      <div>Jag vill inte vara din kompis längre</div>\n      <fa-icon icon=\"cut\"></fa-icon>\n    </div>\n</mat-card>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/room-admin/room-admin.component.scss":
+/*!************************************************************!*\
+  !*** ./src/app/pages/room-admin/room-admin.component.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ":host {\n  height: 100vh;\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: auto auto auto 1fr;\n      grid-template-rows: auto auto auto 1fr;\n  background-color: ivory; }\n\n.section {\n  margin: 8px; }\n\n.section .section__info {\n    display: -ms-grid;\n    display: grid;\n    grid: auto auto / auto auto;\n    grid-gap: 8px; }\n\n.section .section__info .room, .section .section__info .password {\n      -ms-grid-column-align: end;\n          justify-self: end;\n      font-weight: 600; }\n\n.section__lines {\n  overflow: scroll; }\n\n.section__lines .section__lines__line {\n    display: -ms-grid;\n    display: grid;\n    -ms-grid-columns: 1fr auto;\n        grid-template-columns: 1fr auto; }\n\n.section__lines .section__lines__line:not(:last-child) {\n    margin-bottom: 8px; }\n\np {\n  display: flex;\n  justify-content: center;\n  font-family: 'Courgette', cursive;\n  font-size: 1.5rem;\n  text-shadow: 2px 2px 0px #ddd; }\n\n@media (orientation: landscape) {\n  .section .section__info {\n    grid: 1fr / 1fr 1fr 1fr 1fr; }\n  .section__lines {\n    display: -ms-grid;\n    display: grid;\n    -ms-grid-columns: 1fr 1fr;\n        grid-template-columns: 1fr 1fr;\n    grid-column-gap: 2rem; }\n  p {\n    margin: 8px; } }\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/room-admin/room-admin.component.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/pages/room-admin/room-admin.component.ts ***!
+  \**********************************************************/
+/*! exports provided: RoomAdminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoomAdminComponent", function() { return RoomAdminComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var RoomAdminComponent = /** @class */ (function () {
+    function RoomAdminComponent() {
+    }
+    RoomAdminComponent.prototype.ngOnInit = function () {
+    };
+    RoomAdminComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-room-admin',
+            template: __webpack_require__(/*! ./room-admin.component.html */ "./src/app/pages/room-admin/room-admin.component.html"),
+            styles: [__webpack_require__(/*! ./room-admin.component.scss */ "./src/app/pages/room-admin/room-admin.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], RoomAdminComponent);
+    return RoomAdminComponent;
 }());
 
 
