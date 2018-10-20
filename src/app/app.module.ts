@@ -28,12 +28,16 @@ import { FooterComponent } from './pages/footer/footer.component';
 import { CreatePasswordComponent } from './pages/create-password/create-password.component';
 import { RoomAdminComponent } from './pages/room-admin/room-admin.component';
 import { AudienceComponent } from './pages/audience/audience.component';
+import { InputPasswordComponent } from './pages/input-password/input-password.component';
+import { ActorLinesComponent } from './pages/actor-lines/actor-lines.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'admin', component: LoginPageComponent },
   { path: 'password', component: CreatePasswordComponent },
   { path: 'room_admin', component: RoomAdminComponent },
+  { path: 'actor_password', component: InputPasswordComponent },
+  { path: 'actor_lines', component: ActorLinesComponent },
   { path: 'audience', component: AudienceComponent },
 ];
 
@@ -51,7 +55,9 @@ library.add(faCut);
     FooterComponent,
     CreatePasswordComponent,
     RoomAdminComponent,
-    AudienceComponent
+    AudienceComponent,
+    InputPasswordComponent,
+    ActorLinesComponent
   ],
   imports: [
     BrowserModule,

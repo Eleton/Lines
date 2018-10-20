@@ -1,0 +1,14 @@
+:host {
+  height: 100vh;
+  background-color: ivory;
+  display: grid;
+  grid-template-rows: auto 1fr 1fr 1fr;
+}
+
+mat-card {
+  margin: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
