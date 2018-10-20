@@ -1,13 +1,13 @@
 :host {
   height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   background-color: ivory;
 }
 
-.content {
+.section {
   margin: 8px;
-  .content__info {
+  .section__info {
     display: grid;
     grid: auto auto / auto auto;
     grid-gap: 8px;
@@ -15,5 +15,40 @@
       justify-self: end;
       font-weight: 600;
     }
+  }
+}
+
+.section__lines {
+  overflow: scroll;
+  .section__lines__line {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+  .section__lines__line:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  font-family: 'Courgette', cursive;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0px #ddd;
+}
+
+@media (orientation: landscape) {
+  .section {
+    .section__info {
+      grid: 1fr / 1fr 1fr 1fr 1fr;
+    }
+  }
+  .section__lines {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+  p {
+    margin: 8px;
   }
 }
