@@ -27,6 +27,7 @@ import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CreatePasswordComponent } from './pages/create-password/create-password.component';
 import { RoomAdminComponent } from './pages/room-admin/room-admin.component';
+import { TextSnippetComponent } from './pages/text-snippet/text-snippet.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -48,7 +49,8 @@ library.add(faCut);
     HeaderComponent,
     FooterComponent,
     CreatePasswordComponent,
-    RoomAdminComponent
+    RoomAdminComponent,
+    TextSnippetComponent
   ],
   imports: [
     BrowserModule,
