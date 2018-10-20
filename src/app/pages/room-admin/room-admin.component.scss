@@ -1,0 +1,19 @@
+:host {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background-color: ivory;
+}
+
+.content {
+  margin: 8px;
+  .content__info {
+    display: grid;
+    grid: auto auto / auto auto;
+    grid-gap: 8px;
+    .room,.password {
+      justify-self: end;
+      font-weight: 600;
+    }
+  }
+}

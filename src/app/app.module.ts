@@ -14,6 +14,9 @@ import { CreateRoomComponent } from './pages/create-room/create-room.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RoomListComponent } from './pages/room-list/room-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCut } from '@fortawesome/free-solid-svg-icons';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -23,12 +26,16 @@ import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CreatePasswordComponent } from './pages/create-password/create-password.component';
+import { RoomAdminComponent } from './pages/room-admin/room-admin.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'admin', component: LoginPageComponent },
   { path: 'password', component: CreatePasswordComponent },
+  { path: 'room_admin', component: RoomAdminComponent },
 ];
+
+library.add(faCut);
 
 @NgModule({
   declarations: [
@@ -40,10 +47,12 @@ const routes: Routes = [
     FrontPageComponent,
     HeaderComponent,
     FooterComponent,
-    CreatePasswordComponent
+    CreatePasswordComponent,
+    RoomAdminComponent
   ],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     RouterModule.forRoot(routes, {
       paramsInheritanceStrategy: 'always'
     }),
