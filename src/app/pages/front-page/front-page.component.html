@@ -21,10 +21,12 @@
 <p>Jag är en:</p>
 
 <button
+  type="submit"
   [disabled]="pending !== 'VALID' || inputText.length === 0"
   mat-raised-button
   class="section"
   routerLink="/password"
+  (click)="submitRoom()"
 >
   Rumskapare
 </button>
@@ -39,6 +41,7 @@
   [disabled]="pending !== 'INVALID' || inputText.length === 0"
   mat-raised-button
   class="section"
+  routerLink="/audience"
 >
   Publik
 </button>

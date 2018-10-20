@@ -30,4 +30,8 @@ export class FrontPageComponent implements OnInit {
     });
   }
 
+  submitRoom() {
+    this.roomService.createRoom(this.roomName.value, '5555');
+  }
+
 }
