@@ -17,7 +17,7 @@ const lines: Line[] = [
     id: '2',
     content: 'Har du köpt dom där byxorna själv',
     time: new Date(Date.now()),
-    used: false,
+    used: true,
     liked: false
   },
   {
@@ -46,13 +46,13 @@ const lines: Line[] = [
     , på grund av Twitter liksom. Jarrrå.`,
     time: new Date(Date.now()),
     used: false,
-    liked: false
+    liked: true
   },
   {
     id: '6',
     content: 'Ivan är så jävla bra på att skriva repliker till den här leken',
     time: new Date(Date.now()),
-    used: false,
+    used: true,
     liked: false
   },
   {
@@ -60,7 +60,7 @@ const lines: Line[] = [
     content: 'Fan vad Moa är en bra sångchef',
     time: new Date(Date.now()),
     used: false,
-    liked: false
+    liked: true
   },
 ];
 

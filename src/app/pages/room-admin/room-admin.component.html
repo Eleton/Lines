@@ -9,64 +9,13 @@
 </mat-card>
 <app-text-snippet>Aktuella repliker:</app-text-snippet>
 <mat-card class="section section__lines">
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre, och vet du att hemma på min gata i stan där bor det en, faktiskt</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
-    </div>
-    <div class="section__lines__line">
-      <div>Jag vill inte vara din kompis längre</div>
-      <fa-icon icon="cut"></fa-icon>
+    <div
+      *ngFor="let line of lines$ | async"
+      class="section__lines__line"
+      [style.textDecoration]="line.used ? 'line-through' : 'none'"
+    >
+      <div>{{line.content}}</div>
+      <fa-icon icon="times" [style.color]="line.used ? 'crimson' : '#222'"></fa-icon>
+      <fa-icon icon="heart" [style.color]="line.liked ? 'lightgreen' : '#222'"></fa-icon>
     </div>
 </mat-card>

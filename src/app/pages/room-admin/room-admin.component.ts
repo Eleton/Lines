@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomService, Line } from 'src/app/domain';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-room-admin',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomAdminComponent implements OnInit {
 
-  constructor() { }
+  lines$: Observable<Line[]>;
+
+  constructor(private roomService: RoomService) { }
 
   ngOnInit() {
+    this.lines$ = this.roomService.getLines();
   }
 
 }

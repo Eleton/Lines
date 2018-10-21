@@ -22,7 +22,12 @@
   overflow: scroll;
   .section__lines__line {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr auto auto;
+    grid-column-gap: 8px;
+    border-bottom: 1px solid rgba(22, 22, 22, 0.5);
+    fa-icon {
+      align-self: center;
+    }
   }
   .section__lines__line:not(:last-child) {
     margin-bottom: 8px;

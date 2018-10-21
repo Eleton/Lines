@@ -16,7 +16,7 @@ import { RoomListComponent } from './pages/room-list/room-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCut } from '@fortawesome/free-solid-svg-icons';
+import { faCut, faTimes, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'audience', component: AudienceComponent },
 ];
 
-library.add(faCut);
+library.add(faCut, faTimes, faHeart);
 
 @NgModule({
   declarations: [
