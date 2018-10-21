@@ -9,5 +9,6 @@ export interface Line {
   id: string;
   content: string;
   time: Date;
-  used: false;
+  used: boolean;
+  liked: boolean;
 }
