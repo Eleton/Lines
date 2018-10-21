@@ -30,6 +30,7 @@ import { RoomAdminComponent } from './pages/room-admin/room-admin.component';
 import { AudienceComponent } from './pages/audience/audience.component';
 import { InputPasswordComponent } from './pages/input-password/input-password.component';
 import { ActorLinesComponent } from './pages/actor-lines/actor-lines.component';
+import { TextSnippetComponent } from './pages/text-snippet/text-snippet.component';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -57,7 +58,8 @@ library.add(faCut);
     RoomAdminComponent,
     AudienceComponent,
     InputPasswordComponent,
-    ActorLinesComponent
+    ActorLinesComponent,
+    TextSnippetComponent
   ],
   imports: [
     BrowserModule,
