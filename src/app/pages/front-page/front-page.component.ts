@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Room, RoomService, forbiddenNameValidator } from '../../domain';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,13 +13,14 @@ export class FrontPageComponent implements OnInit {
   pending = '';
   inputText = '';
   roomName = new FormControl(
-    '',
+    this.roomService.getCurrentRoomName(),
     Validators.required,
     forbiddenNameValidator(this.roomService)
   );
 
   constructor(
     private roomService: RoomService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -31,7 +33,17 @@ export class FrontPageComponent implements OnInit {
   }
 
   submitRoom() {
-    this.roomService.createRoom(this.roomName.value, '5555');
+    // this.roomService.createRoom(this.roomName.value, '5555');
+    // this.roomService.setCurrentRoomName(this.roomName.value);
+  }
+
+  setRoomName() {
+    this.roomService.setCurrentRoomName(this.roomName.value);
+  }
+
+  goToAudience() {
+    this.roomService.setCurrentRoom(this.roomService.getRoom(this.roomName.value));
+    // this.router.navigateByUrl('/audience');
   }
 
 }

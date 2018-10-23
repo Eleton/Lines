@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Room, Line } from './room.model';
-import { Observable, of } from 'rxjs';
+import { Observable, of, ObservableInput } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { format} from 'date-fns';
 
@@ -69,7 +69,33 @@ const lines: Line[] = [
 })
 export class RoomService {
 
-  constructor(private afs: AngularFirestore) { }
+  currentRoomName = '';
+  currentRoom$: Observable<Room>;
+
+  constructor(private afs: AngularFirestore) {
+    this.createLine('bXVrdTIwMTgtMTAtMjI=', 'Jag älskar mitt liv!');
+  }
+
+  setCurrentRoomName(roomName: string) {
+    this.currentRoomName = roomName;
+  }
+
+  getCurrentRoomName(): string {
+    return this.currentRoomName;
+  }
+
+  setCurrentRoom(room: Observable<Room>) {
+    this.currentRoom$ = room;
+  }
+
+  getCurrentRoom(): Observable<Room> {
+    return this.currentRoom$;
+  }
+
+  getRoom(name: string): Observable<Room> {
+    const id = this.toId(name);
+    return this.ref(id).valueChanges();
+  }
 
   getRooms(): Observable<Room[]> {
     return this.afs.collection<Room>('rooms').valueChanges();
@@ -90,10 +116,22 @@ export class RoomService {
   }
 
   doesRoomExist(name): Observable<boolean> {
-    const date = format(Date.now(), 'YYYY-MM-DD');
     const id = this.toId(name);
 
     return this.ref(id).get().pipe(map(s => s.exists));
+  }
+
+  createLine(roomId: string, content: string) {
+    const time = Date.now();
+    const line: Line = {
+      id: time.toString(),
+      content: content,
+      time: new Date(time),
+      used: false,
+      liked: false
+    };
+
+    this.ref(roomId).collection('lines').doc(line.id).set(line);
   }
 
   getLines(): Observable<Line[]> {
@@ -101,6 +139,7 @@ export class RoomService {
   }
 
   private ref(roomId: string): AngularFirestoreDocument<Room> {
+    console.log(roomId);
     return this.afs.collection('rooms').doc(roomId);
   }
 

@@ -2,7 +2,7 @@
 
 <mat-card class="section section__input">
   <mat-form-field class="inputRoomName">
-    <input matInput placeholder="Namn på Rum" [formControl]="roomName">
+    <input matInput placeholder="Namn på Rum" [formControl]="roomName" (keyup)="setRoomName()">
   </mat-form-field>
   <div
     class="response-container"
@@ -43,6 +43,7 @@
   mat-raised-button
   class="section"
   routerLink="/audience"
+  (click)="goToAudience()"
 >
   Publik
 </button>

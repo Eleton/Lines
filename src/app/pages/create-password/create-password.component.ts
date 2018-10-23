@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomService } from 'src/app/domain';
 
 @Component({
   selector: 'app-create-password',
@@ -10,7 +11,7 @@ export class CreatePasswordComponent implements OnInit {
   password = '';
   passwordArray = [];
 
-  constructor() { }
+  constructor(private roomService: RoomService) { }
 
   ngOnInit() {
     this.passwordConverter();
@@ -28,6 +29,10 @@ export class CreatePasswordComponent implements OnInit {
       this.password = this.password.slice(0, this.password.length - 1);
     }
     this.passwordConverter();
+  }
+
+  submitPassword() {
+    this.roomService.createRoom(this.roomService.getCurrentRoomName(), this.password);
   }
 
   private passwordConverter() {
