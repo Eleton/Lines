@@ -1,10 +1,10 @@
-<app-header></app-header>
+<app-header (mouseenter)="p()"></app-header>
 <mat-card class="section">
-  <div class="section__info">
+  <div class="section__info" *ngIf="room$ | async as room">
     <div class="room">Rum:</div>
-    <div class="room-value">Amöban</div>
+    <div class="room-value">{{room.name}}</div>
     <div class="password">Lösenord:</div>
-    <div class="password-value">5555</div>
+    <div class="password-value">{{room.password}}</div>
   </div>
 </mat-card>
 <app-text-snippet>Aktuella repliker:</app-text-snippet>

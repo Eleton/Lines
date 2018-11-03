@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomService } from 'src/app/domain';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-create-password',
@@ -11,7 +12,10 @@ export class CreatePasswordComponent implements OnInit {
   password = '';
   passwordArray = [];
 
-  constructor(private roomService: RoomService) { }
+  constructor(
+    private roomService: RoomService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.passwordConverter();
@@ -33,6 +37,7 @@ export class CreatePasswordComponent implements OnInit {
 
   submitPassword() {
     this.roomService.createRoom(this.roomService.getCurrentRoomName(), this.password);
+    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'room_admin']);
   }
 
   private passwordConverter() {

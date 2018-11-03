@@ -37,6 +37,7 @@ const routes: Routes = [
   { path: 'admin', component: LoginPageComponent },
   { path: 'password', component: CreatePasswordComponent },
   { path: 'room_admin', component: RoomAdminComponent },
+  { path: ':id/room_admin', component: RoomAdminComponent },
   { path: 'actor_password', component: InputPasswordComponent },
   { path: 'actor_lines', component: ActorLinesComponent },
   { path: 'audience', component: AudienceComponent },

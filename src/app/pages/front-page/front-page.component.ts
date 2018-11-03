@@ -42,7 +42,7 @@ export class FrontPageComponent implements OnInit {
   }
 
   goToAudience() {
-    this.roomService.setCurrentRoom(this.roomService.getRoom(this.roomName.value));
+    // this.roomService.setCurrentRoom(this.roomService.getRoom(this.roomName.value));
     // this.router.navigateByUrl('/audience');
   }
 

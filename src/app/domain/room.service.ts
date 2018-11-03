@@ -71,9 +71,9 @@ export class RoomService {
 
   currentRoomName = '';
   currentRoom$: Observable<Room>;
+  currentRoom: Room;
 
   constructor(private afs: AngularFirestore) {
-    this.createLine('bXVrdTIwMTgtMTAtMjI=', 'Jag älskar mitt liv!');
   }
 
   setCurrentRoomName(roomName: string) {
@@ -88,20 +88,30 @@ export class RoomService {
     this.currentRoom$ = room;
   }
 
-  getCurrentRoom(): Observable<Room> {
-    return this.currentRoom$;
+  getCurrentRoom(): Room {
+    return this.currentRoom;
   }
 
-  getRoom(name: string): Observable<Room> {
-    const id = this.toId(name);
+  getCurrentRoom$(name: string): Observable<Room> {
+    return this.ref(this.toId(name)).valueChanges();
+  }
+
+  getRoomById(id: string): Observable<Room> {
     return this.ref(id).valueChanges();
+  }
+
+  getRoom(name: string) {
+    const id = this.toId(name);
+    this.ref(id).valueChanges().subscribe(room => {
+      this.currentRoom = room;
+    }).unsubscribe();
   }
 
   getRooms(): Observable<Room[]> {
     return this.afs.collection<Room>('rooms').valueChanges();
   }
 
-  createRoom(name, password): Promise<Room> {
+  createRoom(name, password) {
     const date = new Date(Date.now());
     const newRoom: Room = {
       id: this.toId(name),
@@ -109,8 +119,6 @@ export class RoomService {
       password,
       date
     };
-
-    console.log(newRoom);
 
     return this.ref(newRoom.id).set(newRoom).then(() => newRoom);
   }
@@ -134,17 +142,18 @@ export class RoomService {
     this.ref(roomId).collection('lines').doc(line.id).set(line);
   }
 
-  getLines(): Observable<Line[]> {
+  getLines(id): Observable<Line[]> {
+    return this.ref(id).collection<Line>('lines').valueChanges();
     return of(lines);
   }
 
-  private ref(roomId: string): AngularFirestoreDocument<Room> {
-    console.log(roomId);
-    return this.afs.collection('rooms').doc(roomId);
-  }
-
-  private toId(name: string): string {
+  toId(name: string): string {
     const date = format(Date.now(), 'YYYY-MM-DD');
     return btoa(name.toLowerCase() + date);
   }
+
+  private ref(roomId: string): AngularFirestoreDocument<Room> {
+    return this.afs.collection('rooms').doc(roomId);
+  }
+
 }

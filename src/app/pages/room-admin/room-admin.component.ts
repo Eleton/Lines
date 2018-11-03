@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomService, Line } from 'src/app/domain';
+import { RoomService, Line, Room } from 'src/app/domain';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { Router, ActivatedRoute, ParamMap, ChildActivationStart } from '@angular/router';
 
 @Component({
   selector: 'app-room-admin',
@@ -10,11 +12,32 @@ import { Observable } from 'rxjs';
 export class RoomAdminComponent implements OnInit {
 
   lines$: Observable<Line[]>;
+  currentRoom: Room;
+  room$: Observable<Room>;
 
-  constructor(private roomService: RoomService) { }
+  constructor(
+    private roomService: RoomService,
+    private route: ActivatedRoute,
+    private router: Router
+    ) {
+
+    this.roomService.getCurrentRoom$(this.roomService.getCurrentRoomName())
+      .subscribe(room => this.currentRoom = room);
+
+    this.roomService.getRoom(this.roomService.getCurrentRoomName());
+  }
 
   ngOnInit() {
-    this.lines$ = this.roomService.getLines();
+    const id = this.route.snapshot.paramMap.get('id');
+    this.room$ = this.roomService.getRoomById(id);
+
+
+    this.lines$ = this.roomService.getLines(id);
+    this.lines$.subscribe(x => console.log(x));
+  }
+
+  p() {
+    this.room$.subscribe(x => console.log(x));
   }
 
 }
