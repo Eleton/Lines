@@ -17,9 +17,7 @@ export class AudienceComponent implements OnInit {
   }
 
   submitLine() {
-    this.roomService.getCurrentRoom().subscribe(room => {
-      this.roomService.createLine(room.id, this.line.value);
-    }).unsubscribe();
+    this.roomService.createLine(this.roomService.getCurrentRoomName(), this.line.value);
   }
 
 }
