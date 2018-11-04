@@ -16,4 +16,18 @@ mat-card {
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
+  color: #222;
+  user-select: none;
+
+  background-color: #222;
+}
+
+mat-card:active {
+  background-color: white;
+  animation: changeBackground 2s;
+}
+
+@keyframes changeBackground {
+  from {background-color: #222;}
+    to {background-color: white;}
 }
