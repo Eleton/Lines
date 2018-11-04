@@ -12,6 +12,7 @@
       mat-raised-button
       class="section"
       (click)="submitLine()"
+      [disabled]="!line.value"
     >
       Skicka
     </button>

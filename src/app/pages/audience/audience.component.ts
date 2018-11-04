@@ -28,6 +28,7 @@ export class AudienceComponent implements OnInit {
 
   submitLine() {
     this.roomService.createLine(this.id, this.line.value);
+    this.line.setValue('');
   }
 
 }
