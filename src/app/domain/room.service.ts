@@ -139,9 +139,6 @@ export class RoomService {
       liked: false
     };
 
-    console.log(line);
-
-
     this.ref(roomId).collection('lines').doc(line.id).set(line);
   }
 
