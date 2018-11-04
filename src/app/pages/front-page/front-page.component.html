@@ -25,8 +25,7 @@
   [disabled]="pending !== 'VALID' || inputText.length === 0"
   mat-raised-button
   class="section"
-  routerLink="/password"
-  (click)="submitRoom()"
+  (click)="goToRoomAdmin()"
 >
   Rumskapare
 </button>
@@ -34,7 +33,7 @@
   [disabled]="pending !== 'INVALID' || inputText.length === 0"
   mat-raised-button
   class="section"
-  routerLink="/actor_password"
+  (click)="goToActor()"
 >
   Aktör
 </button>
@@ -42,7 +41,6 @@
   [disabled]="pending !== 'INVALID' || inputText.length === 0"
   mat-raised-button
   class="section"
-  routerLink="/audience"
   (click)="goToAudience()"
 >
   Publik

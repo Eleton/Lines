@@ -1,7 +1,7 @@
 :host {
   height: 100vh;
   display: grid;
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto auto 1fr;
   background-color: ivory;
 }
 
@@ -15,4 +15,8 @@ p {
 
 mat-card {
   margin: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
 }

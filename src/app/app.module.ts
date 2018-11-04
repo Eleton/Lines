@@ -36,11 +36,15 @@ const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'admin', component: LoginPageComponent },
   { path: 'password', component: CreatePasswordComponent },
+  { path: ':id/password', component: CreatePasswordComponent },
   { path: 'room_admin', component: RoomAdminComponent },
   { path: ':id/room_admin', component: RoomAdminComponent },
   { path: 'actor_password', component: InputPasswordComponent },
+  { path: ':id/actor_password', component: InputPasswordComponent },
   { path: 'actor_lines', component: ActorLinesComponent },
+  { path: ':id/actor_lines', component: ActorLinesComponent },
   { path: 'audience', component: AudienceComponent },
+  { path: ':id/audience', component: AudienceComponent },
 ];
 
 library.add(faCut, faTimes, faHeart);

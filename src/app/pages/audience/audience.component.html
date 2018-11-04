@@ -1,16 +1,19 @@
 <app-header></app-header>
-<p>Skriv in en replik</p>
+<mat-card>
+  <span *ngIf="room$ | async as room">Du är i rum: <strong>{{room.name}}</strong></span>
+</mat-card>
+<app-text-snippet>Skriv in en replik:</app-text-snippet>
 <mat-card>
   <mat-form-field class="inputRoomName">
     <input matInput placeholder="En kul replik" [formControl]="line">
   </mat-form-field>
   <div>
     <button
-    mat-raised-button
-    class="section"
-    (click)="submitLine()"
+      mat-raised-button
+      class="section"
+      (click)="submitLine()"
     >
-    Skicka
-  </button>
-</div>
+      Skicka
+    </button>
+  </div>
 </mat-card>

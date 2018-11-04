@@ -139,12 +139,14 @@ export class RoomService {
       liked: false
     };
 
-    this.ref(this.toId(roomId)).collection('lines').doc(line.id).set(line);
+    console.log(line);
+
+
+    this.ref(roomId).collection('lines').doc(line.id).set(line);
   }
 
   getLines(id): Observable<Line[]> {
     return this.ref(id).collection<Line>('lines').valueChanges();
-    return of(lines);
   }
 
   toId(name: string): string {

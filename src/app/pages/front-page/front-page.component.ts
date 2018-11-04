@@ -32,18 +32,19 @@ export class FrontPageComponent implements OnInit {
     });
   }
 
-  submitRoom() {
-    // this.roomService.createRoom(this.roomName.value, '5555');
-    // this.roomService.setCurrentRoomName(this.roomName.value);
-  }
-
   setRoomName() {
     this.roomService.setCurrentRoomName(this.roomName.value);
   }
 
+
+  goToRoomAdmin() {
+    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'password']);
+  }
+  goToActor() {
+    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'actor_password']);
+  }
   goToAudience() {
-    // this.roomService.setCurrentRoom(this.roomService.getRoom(this.roomName.value));
-    // this.router.navigateByUrl('/audience');
+    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'audience']);
   }
 
 }
