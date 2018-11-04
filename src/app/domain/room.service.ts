@@ -5,65 +5,6 @@ import { Observable, of, ObservableInput } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { format} from 'date-fns';
 
-const lines: Line[] = [
-  {
-    id: '1',
-    content: 'Hej du!',
-    time: new Date(Date.now()),
-    used: false,
-    liked: false
-  },
-  {
-    id: '2',
-    content: 'Har du köpt dom där byxorna själv',
-    time: new Date(Date.now()),
-    used: true,
-    liked: false
-  },
-  {
-    id: '3',
-    content: `Det här är en mening som innehåller 140 tecken
-    , vilket jag tänker är en rimlig maxstorlek på en replik
-    , på grund av Twitter liksom. Jarrrå.`,
-    time: new Date(Date.now()),
-    used: false,
-    liked: false
-  },
-  {
-    id: '4',
-    content: 'Kort',
-    time: new Date(Date.now()),
-    used: false,
-    liked: false
-  },
-  {
-    id: '5',
-    content: `Det här är en mening som innehåller 280 tecken
-    , vilket jag tänker är en rimlig maxstorlek på en replik
-    , på grund av Twitter liksom. Jarrrå.
-    Det här är en mening som innehåller 280 tecken
-    , vilket jag tänker är en rimlig maxstorlek på en replik
-    , på grund av Twitter liksom. Jarrrå.`,
-    time: new Date(Date.now()),
-    used: false,
-    liked: true
-  },
-  {
-    id: '6',
-    content: 'Ivan är så jävla bra på att skriva repliker till den här leken',
-    time: new Date(Date.now()),
-    used: true,
-    liked: false
-  },
-  {
-    id: '7',
-    content: 'Fan vad Moa är en bra sångchef',
-    time: new Date(Date.now()),
-    used: false,
-    liked: true
-  },
-];
-
 @Injectable({
   providedIn: 'root'
 })
@@ -144,6 +85,26 @@ export class RoomService {
 
   getLines(id): Observable<Line[]> {
     return this.ref(id).collection<Line>('lines').valueChanges();
+  }
+
+  getThreeLines(id: string): Observable<Line[]> {
+    const lines$ = this.ref(id).collection<Line>('lines').valueChanges().pipe(
+      map(lines => {
+        return lines
+          .map(line => ({line, randomNumber: Math.random()}))
+          .sort((a, b) => a.randomNumber - b.randomNumber)
+          .map(line => line.line)
+          .slice(0, 3);
+      })
+    );
+    // lines$.pipe(
+    //   tap(lines =>
+    //     lines.forEach(line => {
+    //       this.ref(id).collection<Line>('lines').doc(line.id).update({used: true});
+    //     })
+    //   )
+    // );
+    return lines$;
   }
 
   toId(name: string): string {
