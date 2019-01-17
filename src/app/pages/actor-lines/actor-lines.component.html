@@ -1,4 +1,5 @@
 <app-header></app-header>
 <div class="lines" *ngIf="lines$ | async as lines">
   <mat-card *ngFor="let line of lines">{{line.content}}</mat-card>
+  test
 </div>

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Room, Line } from './room.model';
-import { Observable, of, ObservableInput } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
+import { Observable, of, ObservableInput, merge } from 'rxjs';
+import { tap, map, switchMap, mergeMap } from 'rxjs/operators';
 import { format} from 'date-fns';
 
 @Injectable({
@@ -87,25 +87,30 @@ export class RoomService {
     return this.ref(id).collection<Line>('lines').valueChanges();
   }
 
-  getThreeLines(id: string): Observable<Line[]> {
-    const lines$ = this.ref(id).collection<Line>('lines').valueChanges().pipe(
-      map(lines => {
-        return lines
-          .map(line => ({line, randomNumber: Math.random()}))
-          .sort((a, b) => a.randomNumber - b.randomNumber)
-          .map(line => line.line)
-          .slice(0, 3);
-      })
-    );
-    // lines$.pipe(
-    //   tap(lines =>
-    //     lines.forEach(line => {
-    //       this.ref(id).collection<Line>('lines').doc(line.id).update({used: true});
-    //     })
-    //   )
-    // );
-    return lines$;
-  }
+  // getThreeLines(id: string): Observable<Line[]> {
+  //   const lines$ = this.ref(id).collection<Line>('lines').get().pipe(
+  //     map(snapshot => snapshot.docs),
+  //     map(lines => {
+  //       return lines
+  //         .map(line => ({line, randomNumber: Math.random()}))
+  //         .sort((a, b) => a.randomNumber - b.randomNumber)
+  //         .map(line => line.line)
+  //         .slice(0, 3);
+  //     }),
+  //     mergeMap()
+  //     switchMap(lines => {
+  //       return lines.forEach(line => this.ref(id).collection<Line>('lines').doc(line.id).update({used: true})
+  //     })
+  //   );
+  //   // lines$.pipe(
+  //   //   tap(lines =>
+  //   //     lines.forEach(line => {
+  //   //       this.ref(id).collection<Line>('lines').doc(line.id).update({used: true});
+  //   //     })
+  //   //   )
+  //   // );
+  //   return lines$;
+  // }
 
   toId(name: string): string {
     const date = format(Date.now(), 'YYYY-MM-DD');
