@@ -15,7 +15,7 @@
       [style.textDecoration]="line.used ? 'line-through' : 'none'"
     >
       <div>{{line.content}}</div>
-      <fa-icon icon="times" [style.color]="line.used ? 'crimson' : '#222'"></fa-icon>
+      <fa-icon icon="times" [style.color]="line.used ? 'crimson' : '#222'" (click)="toggleUse(line.id)"></fa-icon>
       <fa-icon icon="heart" [style.color]="line.liked ? 'lightgreen' : '#222'"></fa-icon>
     </div>
 </mat-card>

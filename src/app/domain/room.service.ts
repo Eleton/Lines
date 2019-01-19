@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Room, Line } from './room.model';
-import { Observable, of, ObservableInput, merge } from 'rxjs';
+import { Observable, of, ObservableInput, merge, from } from 'rxjs';
 import { tap, map, switchMap, mergeMap } from 'rxjs/operators';
 import { format} from 'date-fns';
 
@@ -87,30 +87,52 @@ export class RoomService {
     return this.ref(id).collection<Line>('lines').valueChanges();
   }
 
-  // getThreeLines(id: string): Observable<Line[]> {
-  //   const lines$ = this.ref(id).collection<Line>('lines').get().pipe(
-  //     map(snapshot => snapshot.docs),
-  //     map(lines => {
-  //       return lines
-  //         .map(line => ({line, randomNumber: Math.random()}))
-  //         .sort((a, b) => a.randomNumber - b.randomNumber)
-  //         .map(line => line.line)
-  //         .slice(0, 3);
-  //     }),
-  //     mergeMap()
-  //     switchMap(lines => {
-  //       return lines.forEach(line => this.ref(id).collection<Line>('lines').doc(line.id).update({used: true})
-  //     })
-  //   );
-  //   // lines$.pipe(
-  //   //   tap(lines =>
-  //   //     lines.forEach(line => {
-  //   //       this.ref(id).collection<Line>('lines').doc(line.id).update({used: true});
-  //   //     })
-  //   //   )
-  //   // );
-  //   return lines$;
-  // }
+  getThreeLines(id: string): Observable<Line[]> {
+    console.log("ge mig tre repliker")
+    const l = this.ref(id).collection<Line>('lines').snapshotChanges()
+    const lines$ = l.pipe(
+      tap(lines => console.log(lines)),
+      map(lines => lines.map(line => line.payload.doc.data())),
+      map(lines => {
+        return lines
+          .map(line => ({line, random: Math.random()}))
+          .sort((a, b) => a.random - b.random)
+          .map(line => line.line)
+          .slice(0, 3);
+      }),
+      tap(lines => {
+        console.log(lines)
+      })
+    )
+    const lol = lines$.subscribe(lines => {
+      console.log({lines})
+      this.useLine(id, lines[0].id)
+      this.useLine(id, lines[1].id)
+      this.useLine(id, lines[2].id)
+      lol.unsubscribe()
+    })
+    return lines$;
+  }
+
+  toggleUse(id: string, lineId: string) {
+    console.log("halllåååå????")
+    const line = this.ref(id).collection<Line>('lines').doc(lineId)
+    line.get().toPromise()
+      .then(l => {
+        const { used } = l.data();
+        line.update({used: !used})
+      })
+  }
+
+  useLine(id: string, lineId: string) {
+    console.log("nu använder jag ", lineId)
+    const line = this.ref(id).collection<Line>('lines').doc(lineId)
+    line.get().toPromise()
+      .then(l => {
+        const { used } = l.data();
+        line.update({used: true})
+      })
+  }
 
   toId(name: string): string {
     const date = format(Date.now(), 'YYYY-MM-DD');

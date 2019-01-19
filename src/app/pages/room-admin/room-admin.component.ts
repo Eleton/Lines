@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./room-admin.component.scss']
 })
 export class RoomAdminComponent implements OnInit {
-
+  roomId: string;
   lines$: Observable<Line[]>;
   currentRoom: Room;
   room$: Observable<Room>;
@@ -28,14 +28,19 @@ export class RoomAdminComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
+    this.roomId = id;
     this.room$ = this.roomService.getRoomById(id);
 
     this.lines$ = this.roomService.getLines(id);
-    this.lines$.subscribe(x => console.log(x));
+    // this.lines$.subscribe(x => console.log(x));
   }
 
   p() {
-    this.room$.subscribe(x => console.log(x));
+    // this.room$.subscribe(x => console.log(x));
+  }
+
+  toggleUse(lineId: string) {
+    this.roomService.toggleUse(this.roomId, lineId);
   }
 
 }
