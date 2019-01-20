@@ -91,31 +91,21 @@ export class RoomService {
     console.log("ge mig tre repliker")
     const l = this.ref(id).collection<Line>('lines').snapshotChanges()
     const lines$ = l.pipe(
-      tap(lines => console.log(lines)),
       map(lines => lines.map(line => line.payload.doc.data())),
       map(lines => {
         return lines
+          .filter(line => !line.used)
           .map(line => ({line, random: Math.random()}))
           .sort((a, b) => a.random - b.random)
           .map(line => line.line)
           .slice(0, 3);
       }),
-      tap(lines => {
-        console.log(lines)
-      })
+      tap(l => console.log(l))
     )
-    const lol = lines$.subscribe(lines => {
-      console.log({lines})
-      this.useLine(id, lines[0].id)
-      this.useLine(id, lines[1].id)
-      this.useLine(id, lines[2].id)
-      lol.unsubscribe()
-    })
     return lines$;
   }
 
   toggleUse(id: string, lineId: string) {
-    console.log("halllåååå????")
     const line = this.ref(id).collection<Line>('lines').doc(lineId)
     line.get().toPromise()
       .then(l => {

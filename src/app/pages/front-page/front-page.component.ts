@@ -24,12 +24,18 @@ export class FrontPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    sessionStorage.removeItem('lines');
     this.roomName.statusChanges.subscribe(status => {
       this.pending = status;
     });
     this.roomName.valueChanges.subscribe(inputText => {
       this.inputText = inputText;
     });
+    if (this.roomName.value) {
+      this.pending = 'INVALID';
+      this.inputText = this.roomName.value;
+      this.setRoomName();
+    }
   }
 
   setRoomName() {

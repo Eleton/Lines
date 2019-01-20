@@ -5,12 +5,27 @@
   grid-template-rows: auto 1fr;
 }
 
+.container {
+  height: 100%;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-container {
+  padding: 8px;
+  font-size: 1.5rem;
+}
+
 .lines {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-mat-card {
+.hidden-line {
   margin: 8px;
   display: flex;
   justify-content: center;
@@ -22,9 +37,9 @@ mat-card {
   background-color: #222;
 }
 
-mat-card:active {
+.hidden-line:active {
   background-color: white;
-  animation: changeBackground 2s;
+  animation: changeBackground 0.5s;
 }
 
 @keyframes changeBackground {

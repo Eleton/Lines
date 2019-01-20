@@ -9,9 +9,6 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class MainPageComponent implements OnInit {
 
   constructor(private afs: AngularFirestore) {
-    const test = afs.collection('rooms').doc('iy9V4SqdEsjp5jV5ucm4').collection('lines');
-    const lol = test.valueChanges();
-    lol.subscribe(x => console.log(x));
   }
 
   ngOnInit() {

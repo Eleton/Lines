@@ -1,4 +1,16 @@
 <app-header></app-header>
-<div class="lines" *ngIf="lines$ | async as lines">
-  <mat-card *ngFor="let line of lines">{{line.content}}</mat-card>
+<div class="container loading-container" *ngIf="loading"><mat-spinner color="accent"></mat-spinner></div>
+<div class="container" *ngIf="!loading">
+  <div class="not-found-container" *ngIf="!active">
+    <mat-card>
+      Hittar inte tillräckligt med repliker.
+      <br>
+      Vänta tills publiken är klar och ladda om.
+    </mat-card>
+  </div>
+  <div class="container" *ngIf="active">
+    <div class="lines container" *ngIf="lines$ | async as lines">
+      <mat-card class="hidden-line" *ngFor="let line of lines">{{line.content}}</mat-card>
+    </div>
+  </div>
 </div>
