@@ -105,6 +105,15 @@ export class RoomService {
     return lines$;
   }
 
+  toggleLike(id: string, lineId: string) {
+    const line = this.ref(id).collection<Line>('lines').doc(lineId)
+    line.get().toPromise()
+      .then(l => {
+        const { liked } = l.data();
+        line.update({liked: !liked})
+      })
+  }
+
   toggleUse(id: string, lineId: string) {
     const line = this.ref(id).collection<Line>('lines').doc(lineId)
     line.get().toPromise()

@@ -39,6 +39,10 @@ export class RoomAdminComponent implements OnInit {
     // this.room$.subscribe(x => console.log(x));
   }
 
+  toggleLike(lineId: string) {
+    this.roomService.toggleLike(this.roomId, lineId);
+  }
+
   toggleUse(lineId: string) {
     this.roomService.toggleUse(this.roomId, lineId);
   }
