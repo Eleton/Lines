@@ -22,7 +22,7 @@
 
 <button
   type="submit"
-  [disabled]="pending !== 'VALID' || inputText.length === 0"
+  [disabled]="!(pending === 'VALID' || (pending === 'INVALID' && creatorOfRoom)) || pending === 'PENDING' || inputText.length === 0"
   mat-raised-button
   class="section"
   (click)="goToRoomAdmin()"

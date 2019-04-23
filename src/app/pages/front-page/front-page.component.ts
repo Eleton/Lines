@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class FrontPageComponent implements OnInit {
   pending = '';
   inputText = '';
+  creatorOfRoom = true;
   roomName = new FormControl(
     this.roomService.getCurrentRoomName(),
     Validators.required,
@@ -40,11 +41,22 @@ export class FrontPageComponent implements OnInit {
 
   setRoomName() {
     this.roomService.setCurrentRoomName(this.roomName.value);
+
+    const ownedRooms = JSON.parse(sessionStorage.getItem('ownedRooms'));
+    if (Array.isArray(ownedRooms)) {
+      this.creatorOfRoom = ownedRooms.includes(this.roomService.toId(this.roomName.value))
+    } else {
+      this.creatorOfRoom = false;
+    }
   }
 
 
   goToRoomAdmin() {
-    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'password']);
+    if (this.creatorOfRoom) {
+      this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'room_admin']);
+    } else {
+      this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'password']);
+    }
   }
   goToActor() {
     this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'actor_password']);

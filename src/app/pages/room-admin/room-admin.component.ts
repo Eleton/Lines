@@ -32,7 +32,7 @@ export class RoomAdminComponent implements OnInit {
     this.room$ = this.roomService.getRoomById(id);
 
     this.lines$ = this.roomService.getLines(id);
-    // this.lines$.subscribe(x => console.log(x));
+    this.room$.subscribe(x => console.log(x));
   }
 
   p() {
