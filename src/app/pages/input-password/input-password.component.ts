@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RoomService } from 'src/app/domain';
-import { Router } from '@angular/router';
+import { RoomService, Room } from 'src/app/domain';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-input-password',
@@ -11,17 +11,23 @@ export class InputPasswordComponent implements OnInit {
 
   password = '';
   passwordArray = [];
+  wrongPassword = false;
+  currentRoom: Room;
 
   constructor(
     private roomService: RoomService,
+    private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.passwordConverter();
+    this.roomService.getCurrentRoom$(this.roomService.getCurrentRoomName())
+      .subscribe(room => { this.currentRoom = room; console.log(this.currentRoom) });
   }
 
   inputDigit(digit: string) {
+    this.wrongPassword = false;
     if (this.password.length < 4) {
       this.password = this.password + digit;
     }
@@ -36,8 +42,14 @@ export class InputPasswordComponent implements OnInit {
   }
 
   submitPassword() {
-    this.roomService.createRoom(this.roomService.getCurrentRoomName(), this.password);
-    this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'actor_lines']);
+    if (this.currentRoom.password === this.password) {
+      this.roomService.createRoom(this.roomService.getCurrentRoomName(), this.password);
+      this.router.navigate([this.roomService.toId(this.roomService.getCurrentRoomName()), 'actor_lines']);
+    } else {
+      this.password = '';
+      this.passwordArray = ['', '', '', ''];
+      this.wrongPassword = true;
+    }
   }
 
   private passwordConverter() {
