@@ -22,8 +22,8 @@ export class InputPasswordComponent implements OnInit {
 
   ngOnInit() {
     this.passwordConverter();
-    this.roomService.getCurrentRoom$(this.roomService.getCurrentRoomName())
-      .subscribe(room => { this.currentRoom = room; console.log(this.currentRoom) });
+    this.roomService.getRoomById(this.route.snapshot.paramMap.get('id'))
+      .subscribe(room => { this.currentRoom = room; console.log(room) });
   }
 
   inputDigit(digit: string) {

@@ -62,11 +62,8 @@ export class RoomService {
     };
 
     let savedRoomData: String[] | undefined = JSON.parse(sessionStorage.getItem('ownedRooms'));
-
     if (!savedRoomData) savedRoomData = [];
-
     savedRoomData.push(newRoom.id);
-
     sessionStorage.setItem('ownedRooms', JSON.stringify(savedRoomData));
 
     return this.ref(newRoom.id).set(newRoom).then(() => newRoom);
