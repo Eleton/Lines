@@ -35,14 +35,10 @@
   user-select: none;
 
   background-color: #222;
+  transition: background-color 0.5s;
 }
 
-.hidden-line:active {
+.hidden-line:focus {
+  outline: none;
   background-color: white;
-  animation: changeBackground 0.5s;
-}
-
-@keyframes changeBackground {
-  from {background-color: #222;}
-    to {background-color: white;}
 }

@@ -27,7 +27,6 @@ export class ActorLinesComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.room$ = this.roomService.getRoomById(this.id);
     const savedData: Line[] | undefined = JSON.parse(sessionStorage.getItem('lines'));
-    console.log(savedData)
     if (savedData) {
       this.loading = false;
       this.active = true;

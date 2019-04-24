@@ -10,7 +10,7 @@
   </div>
   <div class="container" *ngIf="active">
     <div class="lines container" *ngIf="lines$ | async as lines">
-      <mat-card class="hidden-line" *ngFor="let line of lines">{{line.content}}</mat-card>
+      <mat-card class="hidden-line" *ngFor="let line of lines" tabindex=0>{{line.content}}</mat-card>
     </div>
   </div>
 </div>
